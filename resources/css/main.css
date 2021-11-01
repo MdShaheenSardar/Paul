@@ -1,0 +1,633 @@
+
+/*===================================
+Template Name:Paul Lapkin
+Template URL: https//:www.moshiur.dev/projects/paul-lapkin/
+Author URL:https/moshiur.me
+Version:1.0
+====================================*/
+
+/*====================================
+CSS Index
+------------
+0. Google Fonts
+1. Common CSS
+2. Reusable Components
+3. Hero 
+4. About 
+5. Working Process
+6. Experience
+7. Work
+8. Testimonial
+9. Contact
+10. Footer
+
+
+======================================*/
+
+/*  ================   0. Google Fonts ================  */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/*  ================   1. Common CSS ================  */
+html{
+    font-size: 62.5%;
+    /* scroll-behavior: smooth; */
+}
+body{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;    
+}
+
+ul li {
+    list-style-type: none;
+}
+img{
+    width: 100%;
+}
+
+/*  ================   2. Reusable Components ================  */
+.container{
+    max-width: 118rem;
+    margin: auto;
+}
+
+section{
+    padding: 12rem 0;
+}
+
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.btn:link, 
+.btn:visited,
+input[type="submit"]{
+   color: #fff;
+   background-color: #333;
+   width: 20rem;
+   display: inline-block;
+   padding: 1.5rem 0;
+   text-transform: capitalize;
+   text-align: center;
+   border: 0.2rem solid #333;
+   transition: .5s;
+}
+
+.btn:hover, 
+.btn:active,
+input[type="submit"]:hover{
+    background-color: transparent;
+    color: #333;
+}
+
+.section-title{
+   margin-bottom: 6rem;
+   text-align: center;
+}
+
+.section-title h2{
+   font-size: 4rem; 
+   margin-bottom: 0.2rem;
+   margin-top: 0;
+}
+
+/*  ================   Animation ================  */
+@-webkit-keyframes arrow {
+    0%{
+        top: 0rem;
+    }
+    25%{
+        top: 1.5rem;
+        color: rgb(255, 0, 51);
+    }
+    50%{
+        top: 2.5rem;
+        color: rgb(6, 218, 255);
+    }
+    75%{
+        top: 2rem;
+        color: rgb(0, 243, 12);
+    }
+    100%{
+        top: 0rem;
+    }
+}
+@keyframes arrow {
+    0%{
+        top: 0rem;
+    }
+    25%{
+        top: 1.5rem;
+        color: rgb(255, 0, 51);
+    }
+    50%{
+        top: 2.5rem;
+        color: rgb(6, 218, 255);
+    }
+    75%{
+        top: 2rem;
+        color: rgb(0, 243, 12);
+    }
+    100%{
+        top: 0rem;
+    }
+}
+
+/*  ================   3. Hero  ================  */
+#hero{
+    height: 100vh;
+    /*
+    background: rgba(0,0,0,0.7) url(img/hero.jpg) no-repeat center top /cover;
+    background-blend-mode: overlay;
+    */
+    background: linear-gradient( rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url(img/hero.jpg) no-repeat center top /cover;
+    position: relative;
+}
+.menu-area{
+    padding: 5.5rem 0;
+    /*overflow: hidden;*/
+}
+
+.logo{
+    float: left;
+    position: absolute;
+    z-index: 9999;
+}
+.logo #hero a{
+
+}
+
+.menu{
+    float: right;  
+}
+
+.menu a ion-icon{
+    font-size: 4rem;
+    color: #fff;
+    border: 0.1rem solid #fff;
+}
+
+.hero-content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+h1{
+    font-size: 6.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    margin: 0;
+    display: inline-block;
+    /*
+    border-top: 0.2rem solid #fff;
+    border-bottom: 0.2rem solid #fff;
+    */
+}
+
+h1::before{
+    content: '';
+    height: 0.2rem;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+
+}
+
+h1::after{
+    content: '';
+    height: 0.2rem;
+    width: 100%;
+    display: block;
+    background-color: #fff;
+}
+
+.hero-content span{
+    color: #fff;
+    font-size: 2.25rem;
+    margin-top: 1.5rem;
+    display: block;
+}
+
+.next-section{
+    text-align: center;
+}
+
+.next-section a{
+    position: absolute;
+    bottom: 5.2rem;
+}
+
+.next-section a ion-icon{
+    font-size: 5rem;
+    color: #fff;
+    position: relative;
+    -webkit-animation: arrow 2s infinite ease-in-out;
+            animation: arrow 2s infinite ease-in-out;
+}
+
+/*Hamburger Menu*/
+.hb-menu{
+    width: 0;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+}
+.hb-menu ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;  
+}
+.hb-menu ul li{
+    margin-top: 1.5rem;
+    
+}
+.hb-menu ul li a{
+    color: #fff;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    transition: .5s;
+}
+.hb-menu ul li a:hover{
+    color: #ff2b4a;
+    font-size: 3rem;
+    
+}
+
+.close-btn a ion-icon{
+    color: #fff;
+    font-size: 6rem;
+    position: absolute;
+    top: 4.5rem;
+    right: 7.5rem;
+
+}
+.particles-js-canvas-el{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.uk-lightbox{
+    background-color: rgba(0,0,0,0.9);
+}
+
+div.uk-sticky-fixed{
+    top: 0!important;
+    background-color: rgba(0,0,0,0.6);
+    left: 0;
+    width: 100%!important;
+    padding: .8rem;
+}
+/*  ================   4. About  ================  */
+.about{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 8rem;   
+}
+.paul{
+    -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.about-item h4{
+    color: #000;
+}
+.btn-full:link, 
+.btn-full:visited{
+    background-color: #ff2b4a;
+    border: 0.2rem solid #ff2b4a;
+}
+.btn-full:hover, 
+.btn-full:active{
+    background-color: transparent;
+    color: #ff2b4a;
+}
+.about-cta-btn{
+    margin-top: 4rem;
+}
+
+/*  ================   5. Working Process  ================  */
+#process{
+    background-color: #f6f6f6;  
+    text-align: center; 
+}
+#process.section-title h3, h4{
+    color: #000;
+}
+
+.grid-process{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1.5rem;
+}
+.grid-item-process{
+    background-color: #000;
+    padding: 8.5rem 0;
+}
+.grid-item-process ion-icon{
+    color: #fff;
+    font-size: 4rem;
+}
+
+.grid-item-process h4{
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 4rem;
+}
+.grid-item-process:nth-child(1){
+    background-color: #10c6fc;
+}
+
+.grid-item-process:nth-child(2){
+    background-color: #835aeb;
+}
+
+.grid-item-process:nth-child(3){
+    background-color: #002453;
+}
+
+.grid-item-process:nth-child(4){
+    background-color: #ff2b4a;
+}
+
+/*  ================   6. Experience  ================  */
+#exp{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)), url(img/experience.jpg) no-repeat center top / cover fixed;
+    color: #fff;
+}
+.exp-grid h3, h4{
+    color: #fff;
+}
+.exp-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+.exp-grid-item{
+    /*
+    background-color: #000;
+    opacity: .7;
+    */
+    background-color: rgba(0,0,0,0.7);
+    padding: 4rem;
+}
+.exp h3{
+    color: #fff;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    margin-bottom: 5.5rem;
+}
+.exp h4{
+    color: #fff;
+    margin-bottom: 3rem;
+}
+hr{
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin: 4rem 0;
+}
+/*  ================   7. Work  ================  */
+.work-filter{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.work-filter button{
+    cursor: pointer;
+    border: .1rem solid #000;
+    padding: .5rem 1rem;
+    margin: 0 .5rem; 
+}
+
+.work-filter button:hover{
+    background-color: #ff2b4a;
+    color: #fff;
+}
+
+.work-filter .mixitup-control-active{
+    background-color: #ff2b4a;
+    color: #fff;
+}
+
+.work-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+
+.work-grid-item a img{
+    height: 26rem;
+}
+.work-grid-item:nth-child(5){
+    grid-column: 1/3;
+    /*
+    grid-column-start: 1;
+    grid-column-end: 3;
+    */
+}
+
+/*  ================   8. Testimonial  ================  */
+#tm{
+    background: #cecece url(img/testimonial.jpg) no-repeat center top / cover;
+    
+    
+}
+.tm-grid{
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   grid-gap: 6rem;
+}
+
+.tm-grid-item p{
+   width: 80%;
+   margin: 5rem 0;
+}
+
+.quote{
+    width: 4rem;
+}
+
+.signature{
+   width: 12rem;
+}
+
+/*  ================  9. Contact  ================  */
+#contact{
+    background: #5BA3B1 url(img/contact.jpg) no-repeat center  / cover fixed;
+    color: #fff;
+ }
+ 
+
+ .contact-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+ }
+.contact-grid-item h3{
+    color: #fff;
+}
+ .contact-grid-item:nth-child(1),
+ .nested-contact-grid-item{
+    background-color: rgba(0,0,0,0.7);
+    padding: 4rem;
+ }
+
+ .contact-grid-item h3{
+     font-size: 2.6rem;
+     text-transform: uppercase;
+ }
+
+ form input[type="text"],
+ form input[type="email"],
+ textarea{
+    width: 100%;
+    border: 0.1rem solid #fff;
+    background: transparent;
+    padding: 1rem ;
+    box-sizing: border-box;
+    border-radius: .2rem;
+    margin-top: 2rem;
+    
+ }
+
+ .cta-contact-btn{
+    text-align: right;
+    margin-top: 3rem;
+    margin-bottom: 8rem; 
+}
+
+ .cta-contact-btn input[type="submit"]{
+    background-color: #ff2b4a;
+    border: 0.2rem solid #ff2b4a;
+    cursor: pointer;
+   
+ }
+ .cta-contact-btn input[type="submit"]:hover{
+    background-color: transparent;
+    color: #ff2b4a;
+ }
+
+ textarea{
+     height: 20rem;
+ }
+ ::-webkit-input-placeholder{
+     color: #fff;
+ }
+ ::-moz-placeholder{
+     color: #fff;
+ }
+ :-ms-input-placeholder{
+     color: #fff;
+ }
+ ::-ms-input-placeholder{
+     color: #fff;
+ }
+ ::placeholder{
+     color: #fff;
+ }
+
+ .nested-contact-grid{
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-gap: 1rem;
+ }
+
+/*  ================  10. Footer  ================  */
+#footer{
+    background-color: #222222;
+    text-align: center;
+    padding: 5rem 0;
+    color: #fff;
+}
+.social-list{
+    margin-bottom: 3rem;
+}
+.social-list ul{
+    margin: 0;
+    padding: 0;
+}
+.social-list ul li{
+    display: inline-block;
+    list-style: none;
+}
+.social-list ul li a{ 
+    text-decoration: none; 
+}
+
+.social-list ul li a ion-icon{
+    font-size: 3rem;
+    padding: 0 2rem;
+    border-right: .1rem solid #888888;
+    color: #fff;
+    transition: .3s;
+ 
+}
+.social-list ul li:last-child a ion-icon{
+    border-right: 0;
+}
+.social-list ul li a:hover ion-icon{
+   color: rgb(246, 9, 9); 
+
+}
+.copyrigth p{
+    margin: 0;
+}
+.copyrigth a{
+    color: #FF2B4A;
+    transition: .3s;
+    font-size: 2rem;
+}
+.copyrigth a:hover{
+    color: #c50fc5
+}
+.totop{
+    margin-top: 2rem;
+    border: .1rem solid #fff;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.uk-totop {
+    color: #fff;
+}
+.totop:hover{
+    border: .1rem solid #ff2b4a;
+    padding: 1rem;
+}
+.uk-totop:focus, .uk-totop:hover{
+    color: #ff2b4a;
+}
+
